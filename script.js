@@ -6,6 +6,9 @@
 const TEST_LATITUDE = 22.479952;
 const TEST_LONGITUDE = 88.369472;
 
+/* Custom Map URL */
+const CUSTOM_MAP_URL = 'https://maps.app.goo.gl/uPXcNG68W1B5ii8R8?g_st=aw';
+
 /* Tracking Variables */
 let isTracking = false;
 let trackingInterval = null;
@@ -34,7 +37,7 @@ function updateDisplay(lat, lon, locationName = 'Test Location') {
    ============================================ */
 
 function showTestLocation() {
-    updateDisplay(TEST_LATITUDE, TEST_LONGITUDE, 'Test Location');
+    updateDisplay(TEST_LATITUDE, TEST_LONGITUDE, 'Test Location - RAKSHAK HQ');
     document.getElementById('gpsStatus').textContent = 'TEST MODE';
     logEvent('Test location displayed', 'warning');
 }
@@ -80,16 +83,17 @@ function useGPS() {
 }
 
 /* ============================================
-   UPDATE MAP
+   UPDATE MAP - USES CUSTOM MAP URL
    ============================================ */
 
 function updateMap(lat, lon) {
-    const mapUrl = `https://maps.google.com/maps?q=${lat},${lon}&hl=en&output=embed`;
+    // Use embedded Google Maps with coordinates
+    const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.555!2d${lon}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM0MwMCcwMC4wIk4gODhjMjInMDcuNyJF!5e0!3m2!1sen!2sin!4v`;
     document.getElementById('mapFrame').src = mapUrl;
 }
 
 /* ============================================
-   OPEN GOOGLE MAPS
+   OPEN GOOGLE MAPS - USES CUSTOM MAP
    ============================================ */
 
 function openGoogleMaps() {
@@ -102,9 +106,9 @@ function openGoogleMaps() {
         return;
     }
 
-    const mapsUrl = `https://maps.google.com/?q=${lat},${lon}`;
-    window.open(mapsUrl, '_blank');
-    logEvent('Google Maps opened', 'success');
+    // Open the custom map URL
+    window.open(CUSTOM_MAP_URL, '_blank');
+    logEvent('Custom Google Maps opened', 'success');
 }
 
 /* ============================================
@@ -146,22 +150,22 @@ function shareLocation() {
         return;
     }
 
-    const shareText = `SDTG Location: ${locationName}\nCoordinates: ${lat}, ${lon}\nGoogle Maps: https://maps.google.com/?q=${lat},${lon}`;
+    const shareText = `SDTG Location: ${locationName}\nCoordinates: ${lat}, ${lon}\nGoogle Maps: ${CUSTOM_MAP_URL}`;
 
     if (navigator.share) {
         navigator.share({
-            title: 'SDTG Location',
+            title: 'SDTG Location - RAKSHAK',
             text: shareText,
-            url: window.location.href
+            url: CUSTOM_MAP_URL
         }).then(() => {
             logEvent('Location shared successfully', 'success');
         }).catch(err => {
             logEvent('Share cancelled', 'warning');
         });
     } else {
-        alert('Sharing not supported on this device. Coordinates copied instead.');
-        navigator.clipboard.writeText(shareText);
-        logEvent('Share not supported - Text copied', 'warning');
+        alert('Sharing not supported on this device. Map link copied instead.');
+        navigator.clipboard.writeText(CUSTOM_MAP_URL);
+        logEvent('Share not supported - Map link copied', 'warning');
     }
 }
 

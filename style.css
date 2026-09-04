@@ -1,0 +1,158 @@
+/* ============================================
+   SDTG | RAKSHAK - CSS STYLING
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1220;
+    color: white;
+}
+
+/* HEADER */
+header {
+    background: #111c30;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 6px 0;
+    color: #9fb0c8;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 18px;
+}
+
+/* CARD */
+.card {
+    background: #121e33;
+    border-radius: 15px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+/* TITLE */
+.title {
+    color: #7dd3fc;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* LOCATION */
+.location {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* COORDINATES */
+.coordinates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.coordinate {
+    background: #1a2942;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.coordinate small {
+    display: block;
+    color: #9fb0c8;
+    margin-bottom: 7px;
+}
+
+.coordinate strong {
+    font-size: 17px;
+}
+
+/* BUTTONS */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 9px;
+    background: #263955;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button.primary {
+    background: #2563eb;
+}
+
+/* MAP */
+.map {
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* STATUS */
+.status {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.statusBox {
+    background: #1a2942;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.statusBox small {
+    display: block;
+    color: #9fb0c8;
+    margin-bottom: 7px;
+}
+
+.statusBox strong {
+    color: #7dd3fc;
+}
+
+/* LOG */
+#log {
+    background: #0f1820;
+    padding: 12px;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 12px;
+    color: #7dd3fc;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    color: #71829b;
+    padding: 20px;
+    font-size: 12px;
+}
